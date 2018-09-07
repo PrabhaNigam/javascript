@@ -1,0 +1,30 @@
+<!doctype.html>
+<html>
+<head>
+<title>Display date using date object</title>
+</head>
+<body>
+<script>
+var today=new Date();
+var day=new Array("Sun","Mon","Tue","Wed","Thurs","Fri","Sat");
+var month=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+var hours=today.getHours();
+document.write(day[today.getDay()]+" "+month[today.getMonth()]+" "+today.getDate()+" "
++today.getHours()+":"+today.getMinutes()+":"+today.getSeconds()+" "+today.getFullYear()+"</br>");
+if(hours<12)
+{
+ document.write("Good Morning");
+ 
+}
+else if((hours>=12)&&(hours<=17))
+{
+ document.write("Good Afternoon");
+
+}
+else if(hours>17)
+{
+ document.write("Good Evening");
+}
+</script>
+</body>
+</html>

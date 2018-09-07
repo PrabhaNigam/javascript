@@ -1,0 +1,55 @@
+
+<html>
+<head>
+<title> window example </title>
+</head>
+<script>
+function window()
+{
+var w=document.getElementById("width").value;
+var h=document.getElementById("height").value;
+var l=document.getElementById("left").value;
+var t=document.getElementById("top").value;
+var p="toolbar=yes, scrollbars=yes, resizable=yes, top="+t+", left="+l+", width="+w+",height="+h;
+window.open("newwindow.html", "_blank",p)
+
+}
+</script>
+<body >
+<form id="frmlab" onsubmit="Window()">
+<table border="1" cellspacing="8" cellpadding="10" bordercolor="blue">
+
+<tbody>
+<thead>
+<th colspan="4" align:center>Create a new Window</th>
+</thead>
+<thead>
+<th colspan="4">Window Size</th>
+</thead>
+<tr>
+<td>Width:</td>
+<td><input type="text" id="width" name="txt1" value=""></td> 
+
+<td>Height:</td>
+<td><input type="text" id="height" name="txt2" value=""></td>
+</tr>
+<thead>
+<th colspan="4">POSITION</th>
+</thead>
+<tr>
+<td>Left:</td>
+<td><input type="text" id="left" name="txt3" value=""></td>
+<td>Top:</td>
+<td><input type="text" id="top" name="txt4" value=""></td>
+</tr>
+<td colspan="3">
+<center><input type="Submit" name="submitbtn" value="New Window" onclick="window();"></center>
+</td>
+<td>
+<center><input type="Reset" name="resetbtn" value="Reset"></center>
+</td>
+</tbody>
+</table>
+</form>
+</body>
+</html>

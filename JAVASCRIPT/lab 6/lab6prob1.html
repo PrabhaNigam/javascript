@@ -1,0 +1,111 @@
+<!doctype html>
+<head>
+<title>Working with Documents</title>
+<script language="javascript" type="text/javascript">
+function invoice()
+{
+var firstquan=document.getElementById("Quan1Id").value;
+if(firstquan==undefined)
+{ 
+firstquan=0;
+}
+var secondquan=document.getElementById("Quan2Id").value;
+if(secondquan==undefined)
+{ 
+secondquan=0; 
+}
+var thirdquan=document.getElementById("Quan3Id").value;
+if(thirdquan==undefined)
+{ 
+thirdquan=0; 
+}
+var fourthquan=document.getElementById("Quan4Id").value;
+if(fourthquan==undefined)
+{ 
+fourthquan=0; 
+}
+if(firstquan==0 && secondquan==0 && thirdquan==0 && fourthquan==0)
+{
+ alert("No item selected");
+ return false;
+}
+var mywindow1=window.open("","Mycgwindow1","width=500, height=400");
+    mywindow1.document.write("<body><center><h1>INVOICE</h1></center>");
+	mywindow1.document.write("<table border='1'><tr><th>PRODUCT</th>");
+    mywindow1.document.write("<th>QUANTITY</th>");
+    mywindow1.document.write("<th>PRICE</th>");
+    mywindow1.document.write("<th>TOTAL</th>");
+	if(firstquan!=0)
+	{
+	 mywindow1.document.write("<tr><td>Barbie Doll</td>");
+	 mywindow1.document.write("<td>"+firstquan+"</td>");
+	 mywindow1.document.write("<td>20</td>");
+	 mywindow1.document.write("<td>"+(firstquan*10)+"</td></tr>");
+	}
+    if(secondquan!=0)
+   {
+    mywindow1.document.write("<tr><td>Calculator</td>");
+    mywindow1.document.write("<td>"+secondquan+"</td>");
+	mywindow1.document.write("<td>30</td>");
+	mywindow1.document.write("<td>"+(secondquan*30)+"</td></tr>");
+   }
+    if(thirdquan!=0)
+   {
+   mywindow1.document.write("<tr><td>Mobile Phone</td>");
+   mywindow1.document.write("<td>"+thirdquan+"</td>");
+   mywindow1.document.write("<td>40</td>");
+   mywindow1.document.write("<td>"+(thirdquan*40)+"</td></tr>");
+   }
+    if(fourthquan!=0)
+   {
+   mywindow1.document.write("<tr><td>LG DVD</td>");
+   mywindow1.document.write("<td>"+fourthquan+"</td>");
+   mywindow1.document.write("<td>50</td>");
+   mywindow1.document.write("<td>"+(fourthquan*50)+"</td></tr></table></body>");
+   }
+}
+ </script>
+ </head>
+ <body bgcolor="aqua">
+ <h1>PRODUCTS</h1>
+ <form id="frmlab" onSubmit="return invoice();">
+ <table border="1" bordercolor="grey">
+ <tr>
+ <th>Name</th>
+ <th>Description</th>
+ <th>Price</th>
+ <th>QTY</th>
+ </tr>
+ 
+ <tr>
+ <th>Barbie Doll</th>
+ <th>Beautiful</th>
+ <th>20</th>
+ <th><input type="number" name="Quan1" id="Quan1Id" value=""></th>
+ </tr>
+ 
+ <tr rowspan="2">
+ <th>Calculator</th>
+ <th>Calculator with latest features</th>
+ <th>30</th>
+ <th><input type="number" name="Quan2" id="Quan2Id" value=""></th>
+ </tr>
+ 
+ <tr rowspan="2">
+ <th>Mobile Phone</th>
+ <th>Camera,Java Games,GPRS</th>
+ <th>40</th>
+ <th><input type="number" name="Quan3" id="Quan3Id" value=""></th>
+ </tr>
+ 
+ <tr rowspan="2">
+ <th>LG DVD</th>
+ <th>5 disc changer</th>
+ <th>50</th>
+ <th><input type="number" name="Quan4" id="Quan4Id" value=""></th>
+ </tr>
+ </table>
+ <input type="submit" name="Order" id="OrderId" value="ORDER" >
+ </form>
+ </body>
+ </html>

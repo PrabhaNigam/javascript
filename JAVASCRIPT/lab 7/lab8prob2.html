@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>Form Validation</title>
+<script language="javascript" type="text/javascript">
+function productlist(){
+var category=document.getElementById("CatId").value;
+if(category=="Electronics")
+{
+var allElement = new Array("----------","Television","Laptop","Phone");
+var allElementprice = new Array(0,20000,30000,10000);
+var proObj = document.getElementById("productId");
+var size = proObj.length;
+for(var i=0;i<=size;i++)
+{
+proObj.remove(0);
+}
+for(var i=0;i<allElement.length;i++)
+{
+proObj.options[i] = new Option(allElement[i],allElementprice[i]);
+}
+}
+else if(category=="Grocery")
+{
+var allGro = new Array("--------","Soap","Powder");
+var allGroPrice = new Array(0,40,90);
+var proObj = document.getElementById("productId");
+var size = proObj.length
+for(var i=0;i<=size;i++)
+{
+proObj.remove(0);
+}
+for(var i=0;i<allGro.length;i++)
+{
+proObj.options[i]=new Option(allGro[i],allGroPrice[i]);
+}
+}
+else{
+clear();
+}
+}
+function clear(){
+var proObj = document.getElementById("productId");
+var size = proObj.length
+for(var i=0;i<=size;i++)
+{
+proObj.remove(0);
+}
+}
+function calTotal(){
+var productPrice = eval(document.getElementById("productId").value);
+var qty = eval(document.getElementById("quantityId").value);
+var tot = qty*productPrice;
+
+document.getElementById("totalId").value=tot;
+return false;
+}
+
+function invoice()
+{
+var availability = document.getElementById("productId").value;
+var quantity = document.getElementById("quantityId").value;
+
+var mywindow1=window.open("","Mycgwindow1","width=500, height=400");
+
+    mywindow1.document.write("<body><center><h1>INVOICE</h1></center>");
+	mywindow1.document.write("<table border='1'><tr><th>CATEGORY</th>");
+    mywindow1.document.write("<th>PRODUCT</th>");
+    mywindow1.document.write("<th>QUANTITY</th>");
+	mywindow1.document.write("<th>PRICE</th>");
+    mywindow1.document.write("<th>TOTAL</th>");
+	
+	
+	if(availability==20000){
+	 mywindow1.document.write("<tr><th>Electronics</th>");
+	 mywindow1.document.write("<th>Television</th>");
+	 mywindow1.document.write("<th>"+quantity+"</th>");
+	 mywindow1.document.write("<th>20000</th>");
+	 mywindow1.document.write("<th>"+(quantity*20000)+"</th></tr>");
+	}
+	
+    if(availability==30000){
+	 mywindow1.document.write("<tr><th>Electronics</th>");
+	 mywindow1.document.write("<th>Laptop</th>");
+	 mywindow1.document.write("<th>"+quantity+"</th>");
+	 mywindow1.document.write("<th>30000</th>");
+	 mywindow1.document.write("<th>"+(quantity*30000)+"</th></tr>");
+	}
+	
+	if(availability==10000){
+	 mywindow1.document.write("<tr><th>Electronics</th>");
+	 mywindow1.document.write("<th>Phone</th>");
+	 mywindow1.document.write("<th>"+quantity+"</th>");
+	 mywindow1.document.write("<th>10000</th>");
+	 mywindow1.document.write("<th>"+(quantity*10000)+"</th></tr>");
+	}
+	
+	
+	if(availability==40){
+	 mywindow1.document.write("<tr><th>Grocery</th>");
+	 mywindow1.document.write("<th>Soap</th>");
+	 mywindow1.document.write("<th>"+quantity+"</th>");
+	 mywindow1.document.write("<th>40</th>");
+	 mywindow1.document.write("<th>"+(quantity*40)+"</th></tr>");
+	}
+	
+	if(availability==90){
+	 mywindow1.document.write("<tr><th>Grocery</th>");
+	 mywindow1.document.write("<th>Powder</th>");
+	 mywindow1.document.write("<th>"+quantity+"</th>");
+	 mywindow1.document.write("<th>90</th>");
+	 mywindow1.document.write("<th>"+(quantity*90)+"</th></tr>");
+	}
+}
+</script>
+</head>
+<body bgcolor=dodgerblue>
+<center>
+<form onsubmit="return calTotal();">
+<table style="border:10px solid white" width=400px>
+<caption><h1 style="color:white">Product Details</h1></caption>
+<tr><td>Category:</td>
+<td><select id="CatId" onchange="productlist();">
+<option>Select Category
+<option>Electronics
+<option>Grocery
+</select>
+</td>
+</tr>
+
+<tr><td>Product:</td>
+<td><select id="productId"></td>
+</select>
+</td>
+</tr>
+<tr><td>Quantity:</td>
+<td><input type="text" id="quantityId"/></td>
+</tr>
+
+<tr><td>Total Price:</td>
+<td><input type="text" id="totalId" readonly /></td>
+</tr>
+
+<tr><td><input type="submit" value="Submit" onclick="invoice();"/><td>
+
+<td><input type="reset" onclick="return clear();" value="Clear"/></td>
+
+</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+
+

@@ -1,0 +1,77 @@
+<!doctype html>
+<head>
+<title>form object</title>
+<script>
+function calculatePayment()
+{
+var loan = Number(document.getElementById('loanId').value)
+var percentage = Number(document.getElementById('percentageId').value)
+var period = Number(document.getElementById('periodId').value)
+if(!(loan && percentage && period))
+{
+ alert("Incorrect Submission")
+ return false
+}
+if(loan>1500000)
+{
+alert("Amount is Exceeded")
+}
+if(period<7 || period>15)
+{
+alert("Incorrect time")
+}
+
+var totalInterest = (loan*percentage*period)/100.0
+var totalPayment = loan+totalInterest
+var monthlyPayment = totalPayment/(period*12)
+document.getElementById('paymentId').value = monthlyPayment
+document.getElementById('totalId').value = totalPayment
+document.getElementById('interestId').value = totalInterest
+return true;
+}
+</script>
+</head>
+<h2>Enter Loan Information:</h2>
+<table><tr><td>
+1) Amount of the Loan(any currency):</td>
+<td><input type="number" name="loan" id="loanId" value="">
+</td>
+</tr>
+</br>
+<tr>
+<td>2) Annual percentage rate of interest:</td>
+<td><input type="number" name="percentage" id="percentageId" value="">
+</td>
+</tr></br>
+<tr>
+<td>3) Repayment period in years:</td>
+<td><input type="number" name="period" id="periodId" value="">
+</td>
+</tr>
+</br>
+<tr>
+<td>
+<input type="button" name="compute" id="computeId" value="Compute" onclick="calculatePayment();">
+</td>
+</tr>
+</table>
+<h2>Payment Information:</h2>
+<table><tr><td>
+4) Your monthly payment will be:</td>
+<td><input type="number" name="payment" id="paymentId" value="">
+</td>
+</tr>
+</br>
+<tr>
+<td>5) Your total payment will be:</td>
+<td><input type="number" name="total" id="totalId" value="">
+</td>
+</tr>
+</br>
+<tr>
+<td>6) Your total interest payments will be:</td>
+<td><input type="number" name="interest" id="interestId" value=""></td>
+</tr>
+</table>
+</br>
+</html>
